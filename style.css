@@ -1,0 +1,283 @@
+/*
+Theme Name: Rincón de Pensar Theme
+Author: Pol Ribas
+Description: Tema para el blog del Rincón de Pensar
+Version: 0.0.1
+Tags: bootstrap
+*/
+
+/****** BASIC STYLES ******/
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0 !important;
+    margin-top: 0px !important;
+}
+
+body {
+    background-color: #F7F4EE;
+    max-width: 100vw;
+    height: auto;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", sans-serif;
+    color: #4E4D4B;
+}
+
+h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+h4 {
+    font-size: 26px;
+}
+
+h5 {
+    font-size: 22px;
+}
+
+h6 {
+    font-size: 20px;
+}
+
+p, span, a, li, button {
+    color: #4E4D4B;
+    font-family: "PT Serif", Arial;
+    font-size: 20px;
+}
+
+a {
+    color: rgb(35, 139, 224);
+    border-color: rgb(35, 139, 224);
+    border-bottom: 1px solid;
+    text-decoration: none;
+    padding-bottom: 2px;
+    font-weight: 700;
+}
+
+ul, ol, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+/****** HEADER ******/
+header, nav {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+header {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+nav {
+    padding-top: 130px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+nav .blog-nav-item {
+    text-decoration: none;
+    color: #4E4D4B;
+    font-size: 20px;
+    border: unset;
+    font-weight: inherit;
+}
+
+nav .blog-nav-item.active {
+    font-weight: 700;
+}
+
+.nav-title {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    text-decoration: none;
+    border: unset;
+}
+
+.nav-title h1 {
+    margin: 0;
+    width: max-content;
+}
+
+.nav-title h1 .title,
+.nav-title h1 .subtitle {
+    display: block;
+}
+
+.nav-title h1 .title {
+    font-family: "Playfair Display", sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.nav-title h1 .subtitle {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.nav-title h1 .subtitle .subtitle-content {
+    z-index: 1;
+    padding: 0 10px;
+    font-family: Signatrue, sans-serif;
+    font-size: 16px;
+    background-color: #F7F4EE;
+    margin-right: 30px;
+}
+
+.nav-title h1 .subtitle::before,
+.nav-title h1 .subtitle::after {
+    content: '';
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #707070;
+    z-index: 0;
+    position: absolute;
+}
+
+.nav-title h1 .subtitle::before {
+    transform: translateY(-5px);
+}
+
+.nav-title h1 .subtitle::after {
+    transform: translateY(1px);
+}
+
+
+/****** CONTENT ******/
+#content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    margin: 0 auto;
+}
+
+#content-wrapper .blog-post {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+#content-wrapper .blog-post h2,
+#content-wrapper .blog-post h3,
+#content-wrapper .blog-post h4,
+#content-wrapper .blog-post h5,
+#content-wrapper .blog-post h6 {
+    margin: 0 0 25px;
+}
+
+
+#content-wrapper .blog-post img {
+    max-width: 100%;
+}
+
+#content-wrapper blockquote {
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+    margin: 30px 40px;
+}
+
+#content-wrapper blockquote::before,
+#content-wrapper blockquote::after {
+    content: '"';
+    position: absolute;
+    color: #83827e6e;
+    font-size: 140px;
+    z-index: 0;
+    font-family: "Playfair Display";
+}
+
+#content-wrapper blockquote::before {
+    top: -60px;
+    left: -50px;
+}
+
+#content-wrapper blockquote::after {
+    bottom: -120px;
+    right: -50px;
+}
+
+.blog-post .blog-post-meta {
+    color: #83827E;
+}
+
+
+/****** PAGINATION ******/
+.pager {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0 20px;
+}
+
+.pager .paginate {
+
+}
+
+.pager .paginate a {
+    padding: 10px 30px;
+    border: 1px solid;
+    border-radius: 4px;
+    font-weight: 700;
+    margin: 0 10px;
+}
+
+
+/****** SINGLE ******/
+.blog-post.single {
+    padding-bottom: 30px;
+    border-bottom: 1px solid grey;
+}
+
+
+
+
+/****** COMMENTS ******/
+.comment-author {
+    display: flex;
+}
+.comment-author img {
+    border-radius: 100%;
+    object-fit: cover;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    margin-bottom: auto;
+}
+
+/****** FOOTER ******/
+footer {
+    width: 85%;
+    margin: 50px auto 20px;
+}
+
+footer h3 {
+    font-size: 22px;
+}
