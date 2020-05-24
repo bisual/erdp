@@ -75,25 +75,34 @@ ul, ol, li {
 
 
 /****** HEADER ******/
-header, nav {
-    display: block;
-    width: 100%;
-    height: auto;
-}
 
 header {
     position: relative;
-    margin-bottom: 25px;
+    width: 85%;
+    margin: 0 auto 25px;
 }
 
 nav {
     padding-top: 130px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
 nav .blog-nav-item {
+    flex-grow: 1;
+}
+
+nav .blog-nav-item ul {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+nav .blog-nav-item ul li {
+    margin: 0 7px;
+}
+
+nav .blog-nav-item ul li a {
     text-decoration: none;
     color: #4E4D4B;
     font-size: 20px;
@@ -101,7 +110,7 @@ nav .blog-nav-item {
     font-weight: inherit;
 }
 
-nav .blog-nav-item.active {
+nav .blog-nav-item ul li.current_page_item a {
     font-weight: 700;
 }
 
@@ -175,6 +184,14 @@ nav .blog-nav-item.active {
     flex-wrap: wrap;
     width: 85%;
     margin: 0 auto;
+}
+
+#content-wrapper .intro {
+    color: #83827E;
+    display: block;
+    text-align: center;   
+    margin: 20px auto;
+    width: 80%;
 }
 
 #content-wrapper .blog-post {
@@ -280,4 +297,13 @@ footer {
 
 footer h3 {
     font-size: 22px;
+    margin: 0 0 10px;
+}
+
+footer ul li {
+    margin-bottom: 5px;
+}
+
+footer .footer-section-col {
+    margin-bottom: 30px;
 }

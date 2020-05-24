@@ -18,8 +18,11 @@
 
     <header>
         <nav class="blog-nav">
-            <a class="blog-nav-item active" href="<?php echo get_bloginfo( 'wpurl' );?>">Blog</a>
-            <a class="blog-nav-item" href="sobre-mi">Sobre mi</a>
+            <?php
+                wp_nav_menu( array( 
+                    'theme_location' => 'header-menu-1', 
+                    'container_class' => 'blog-nav-item' ) ); 
+            ?>
             <a class="nav-title" href="<?php echo get_bloginfo( 'wpurl' );?>">
                 <h1>
                     <span class="title"><?php bloginfo("name"); ?></span>
@@ -28,8 +31,11 @@
                     </span>
                 </h1>
             </a>
-            <a class="blog-nav-item" href="el-cajon">El cajón</a>
-            <a class="blog-nav-item" href="contacto">Contacto</a>
+            <?php
+                wp_nav_menu( array( 
+                    'theme_location' => 'header-menu-2', 
+                    'container_class' => 'blog-nav-item' ) ); 
+            ?>
         </nav>
     </header>
 

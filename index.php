@@ -1,8 +1,9 @@
 <?php get_header(); ?>
 
-
+<p class="intro"><?php echo get_theme_mod('erdp_initial_page_content_headline_settings'); ?></p>
 
 <?php
+
     if ( have_posts() ) : while ( have_posts() ) : the_post();
         get_template_part( 'content', get_post_format() );
     endwhile; ?>
