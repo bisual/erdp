@@ -294,7 +294,6 @@ nav .blog-nav-item ul li.current_page_item a {
 /****** SINGLE ******/
 .blog-post.single {
     padding-bottom: 30px;
-    border-bottom: 1px solid grey;
 }
 
 /****** COMMENTS ******/
