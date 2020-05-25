@@ -1,6 +1,10 @@
 <?php get_header(); ?>
 
-<p class="intro"><?php echo get_theme_mod('erdp_initial_page_content_headline_settings'); ?></p>
+<?php 
+    if(is_front_page()) {
+        echo '<p class="intro">' . get_theme_mod('erdp_initial_page_content_headline_settings') . '</p>';
+    }
+?>
 
 <?php
 

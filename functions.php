@@ -119,7 +119,7 @@ function erdp_save_book_metadata( $post_id ) {
 	if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'books_meta_box_nonce' ) ) return;
 	// Comprobamos si el usuario actual no puede editar el post
 	if( !current_user_can( 'edit_post' ) ) return;
-	
+    
 	if(get_post_type($post_id)==='books') {
         // Guardamos... 
         if( isset( $_POST['idioma'] ) ) update_post_meta( $post_id, 'idioma', $_POST['idioma'] );
@@ -133,5 +133,51 @@ function erdp_save_book_metadata( $post_id ) {
 }
 add_action( 'save_post', 'erdp_save_book_metadata' );
 
+function save_books_metadata_in_revisions( $post_id ) {
+
+	$parent_id = wp_is_post_revision( $post_id );
+
+	if ( $parent_id && get_post_type($post_id)==='books' ) {
+		$parent  = get_post( $parent_id );
+		$idioma = get_post_meta( $parent->ID, 'idioma', true );
+		$isbn = get_post_meta( $parent->ID, 'isbn', true );
+		$book_publication_date = get_post_meta( $parent->ID, 'book_publication_date', true );
+		$reading_start_date = get_post_meta( $parent->ID, 'reading_start_date', true );
+		$reading_end_date = get_post_meta( $parent->ID, 'reading_end_date', true );
+		$book_author_name = get_post_meta( $parent->ID, 'book_author_name', true );
+		$purchase_link = get_post_meta( $parent->ID, 'purchase_link', true );
+		if ( false !== $idioma ) update_post_meta($post_id, 'idioma', $my_meta );
+		if ( false !== $isbn ) update_post_meta($post_id, 'isbn', $my_meta );
+		if ( false !== $book_publication_date ) update_post_meta($post_id, 'book_publication_date', $my_meta );
+		if ( false !== $reading_start_date ) update_post_meta($post_id, 'reading_start_date', $my_meta );
+		if ( false !== $reading_end_date ) update_post_meta($post_id, 'reading_end_date', $my_meta );
+		if ( false !== $book_author_name ) update_post_meta($post_id, 'book_author_name', $my_meta );
+		if ( false !== $purchase_link ) update_post_meta($post_id, 'purchase_link', $my_meta );
+	}
+
+}
+add_action( 'save_post', 'save_books_metadata_in_revisions' );
+
+function erdp_books_revision_fields_meta( $fields ) {
+
+	$fields['idioma'] = 'My Meta';
+	$fields['isbn'] = 'My Meta';
+	$fields['book_publication_date'] = 'My Meta';
+	$fields['reading_start_date'] = 'My Meta';
+	$fields['reading_end_date'] = 'My Meta';
+	$fields['book_author_name'] = 'My Meta';
+	$fields['purchase_link'] = 'My Meta';
+	return $fields;
+
+}
+add_filter( '_wp_post_revision_fields', 'erdp_books_revision_fields_meta' );
+
+function my_plugin_revision_field( $value, $field ) {
+
+	global $revision;
+	return get_metadata( $revision->ID, $field, true );
+
+}
+add_filter( '_wp_post_revision_field_idioma', 'my_plugin_revision_field', 10, 2 );
 
 ?>

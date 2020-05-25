@@ -1,5 +1,5 @@
 <div class="blog-post single">
-	<h2><?php the_title(); ?></h2>
+	<h1 class="post-title"><?php the_title(); ?></h1>
     <p class="blog-post-meta">
         <?php the_date(); ?>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#"><?php the_author(); ?></a>
     </p>

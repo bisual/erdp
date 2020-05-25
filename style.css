@@ -52,7 +52,7 @@ h6 {
     font-size: 20px;
 }
 
-p, span, a, li, button {
+p, span, a, li, button, textarea, input {
     color: #4E4D4B;
     font-family: "PT Serif", Arial;
     font-size: 20px;
@@ -67,10 +67,25 @@ a {
     font-weight: 700;
 }
 
+a:active {
+    color: rgb(25, 118, 194);
+    border-color: rgb(25, 118, 194);
+}
+
 ul, ol, li {
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+button, input[type="submit"], .comment-reply-link {
+    border: 1px solid #4E4D4B;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #4E4D4B;
+    text-decoration: none;
+    background-color: white;
+    font-weight: 700;
 }
 
 
@@ -80,6 +95,7 @@ header {
     position: relative;
     width: 85%;
     margin: 0 auto 25px;
+    max-width: 720px;
 }
 
 nav {
@@ -108,6 +124,7 @@ nav .blog-nav-item ul li a {
     font-size: 20px;
     border: unset;
     font-weight: inherit;
+    text-transform: lowercase;
 }
 
 nav .blog-nav-item ul li.current_page_item a {
@@ -139,6 +156,7 @@ nav .blog-nav-item ul li.current_page_item a {
     font-size: 32px;
     font-weight: 900;
     margin-bottom: 10px;
+    text-transform: lowercase;
 }
 
 .nav-title h1 .subtitle {
@@ -184,13 +202,14 @@ nav .blog-nav-item ul li.current_page_item a {
     flex-wrap: wrap;
     width: 85%;
     margin: 0 auto;
+    max-width: 904px;
 }
 
 #content-wrapper .intro {
     color: #83827E;
     display: block;
     text-align: center;   
-    margin: 20px auto;
+    margin: 20px auto 50px;
     width: 80%;
 }
 
@@ -200,12 +219,17 @@ nav .blog-nav-item ul li.current_page_item a {
     margin: 20px 0;
 }
 
+.blog-post .blog-post-title h2:hover,
+.blog-post .blog-post-title h2:active {
+    text-decoration: underline;
+}
+
 #content-wrapper .blog-post h2,
 #content-wrapper .blog-post h3,
 #content-wrapper .blog-post h4,
 #content-wrapper .blog-post h5,
 #content-wrapper .blog-post h6 {
-    margin: 0 0 25px;
+    margin: 40px 0 25px;
 }
 
 
@@ -273,12 +297,11 @@ nav .blog-nav-item ul li.current_page_item a {
     border-bottom: 1px solid grey;
 }
 
-
-
-
 /****** COMMENTS ******/
 .comment-author {
     display: flex;
+    align-items: center;
+    margin-bottom: 10px;
 }
 .comment-author img {
     border-radius: 100%;
@@ -287,12 +310,39 @@ nav .blog-nav-item ul li.current_page_item a {
     height: 60px;
     background-color: white;
     margin-bottom: auto;
+    margin-right: 10px;
 }
+.comment-author cite {
+    margin-right: 10px;
+}
+.comment-form-comment label {
+    display: block;
+}
+.comment-form-comment #comment {
+    resize: none;
+    width: 100%;
+    display: block;
+    font-size: 18px;
+}
+.comment {
+    margin-bottom: 60px;
+}
+.comment .children {
+    margin-top: 30px;
+}
+.comment .children .comment {
+    margin-bottom: 30px;
+}
+.comment.depth-2 { padding-left: 30px; }
+.comment.depth-3 { padding-left: 60px; }
+.comment.depth-4 { padding-left: 90px; }
+.comment.depth-5 { padding-left: 120px; }
 
 /****** FOOTER ******/
 footer {
     width: 85%;
     margin: 50px auto 20px;
+    max-width: 904px;
 }
 
 footer h3 {
@@ -306,4 +356,84 @@ footer ul li {
 
 footer .footer-section-col {
     margin-bottom: 30px;
+}
+
+
+
+@media screen and (min-width: 768px) {
+    h2 {
+        font-size: 34px;
+    }
+    
+    h3 {
+        font-size: 28px;
+    }
+    
+    h4 {
+        font-size: 24px;
+    }
+    
+    h5 {
+        font-size: 20px;
+    }
+    
+    h6 {
+        font-size: 18px;
+    }
+    
+    p, span, a, li, button, textarea, input {
+        font-size: 18px;
+    }
+
+    p {
+        line-height: 1.8;
+    }
+
+    .blog-nav {
+        padding-top: unset;
+        align-items: flex-start;
+    }
+
+    nav .blog-nav-item ul li a {
+        font-size: 18px;
+    }
+
+    .nav-title {
+        position: relative;
+        left: unset;
+        top: unset;
+        transform: unset;
+        margin: 0 10px;
+    }
+
+    .blog-nav-item {
+        margin-top: 16px;
+    }
+
+    #content-wrapper .blog-post:not(.single) {
+        width: calc(50% - 10px);
+        display: inline-block;
+    }
+
+    #content-wrapper .blog-post:not(.single):nth-child(even) {
+        margin-right: 10px;
+    }
+
+    #content-wrapper .blog-post:not(.single):nth-child(odd) {
+        margin-left: 10px;
+    }
+
+    .footer-sections {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .footer-section-col {
+        width: 31%;
+    }
+
+    .blog-post.single .post-title, .blog-post.single .blog-post-meta {
+        text-align: center;
+    }
+
 }
