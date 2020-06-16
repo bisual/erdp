@@ -32,8 +32,14 @@ h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
 
+h1 {
+    font-size: 56px;
+    display: block;
+}
+
 h2 {
     font-size: 36px;
+    display: block;
 }
 
 h3 {
@@ -94,7 +100,7 @@ button, input[type="submit"], .comment-reply-link {
 header {
     position: relative;
     width: 85%;
-    margin: 0 auto 25px;
+    margin: 25px auto 25px;
     max-width: 720px;
 }
 
@@ -268,6 +274,10 @@ nav .blog-nav-item ul li.current_page_item a {
     color: #83827E;
 }
 
+#post-content {
+    display: block;
+}
+
 
 /****** PAGINATION ******/
 .pager {
@@ -357,6 +367,38 @@ footer .footer-section-col {
     margin-bottom: 30px;
 }
 
+/*********** SLIDER ***********/
+.ui-slider {
+    display: block;
+    margin: 30px auto;
+    width: 60%;
+    height: 10px;
+    background-color: #4e4d4b40;
+    position: relative;
+    cursor: pointer;
+}
+
+.ui-slider-handle {
+    position: absolute;
+    display: block;
+    width: 10px !important;
+    height: 10px !important;
+    background-color: #4e4d4b;
+}
+
+.ui-slider-handle:focus {
+    outline: none;
+}
+
+.revision-date {
+    color: grey;
+}
+
+/******* STORY *******/
+#story {
+    display: block;
+    width: 100%;
+}
 
 
 @media screen and (min-width: 768px) {

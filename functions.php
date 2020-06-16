@@ -1,5 +1,16 @@
 <?php
 
+define("ERDP_JS", get_template_directory_uri() . "/js/");
+
+function erdp_scripts() {
+    wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'jquery-ui-slider', "jquery", "1.0.0", false );
+
+    //theme js
+    wp_enqueue_script( 'erdp_main', ERDP_JS . "main.js", array("jquery", "jquery-ui-slider"), "1.0.0", true );
+    wp_enqueue_script( 'erdp_post_slider', ERDP_JS . "post-slider.js", array("jquery", "jquery-ui-slider"), "1.0.0", true );
+}
+add_action('wp_enqueue_scripts', 'erdp_scripts');
 
 function footer_widgets_init() {
 
@@ -136,7 +147,7 @@ function erdp_save_book_metadata( $post_id ) {
 }
 add_action( 'save_post', 'erdp_save_book_metadata' );
 
-function save_books_metadata_in_revisions( $post_id ) {
+/*function save_books_metadata_in_revisions( $post_id ) {
 
 	$parent_id = wp_is_post_revision( $post_id );
 
@@ -181,7 +192,7 @@ function my_plugin_revision_field( $value, $field ) {
 	return get_metadata( $revision->ID, $field, true );
 
 }
-add_filter( '_wp_post_revision_field_idioma', 'my_plugin_revision_field', 10, 2 );
+add_filter( '_wp_post_revision_field_idioma', 'my_plugin_revision_field', 10, 2 );*/
 
 
 /**
