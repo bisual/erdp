@@ -2,8 +2,15 @@
 
 <?php
     if ( have_posts() ) : while ( have_posts() ) : the_post();
-        get_template_part( 'content-single', get_post_format() );
-        
+?>
+    <div class="blog-post single">
+	<h1 class="post-title"><?php the_title(); ?></h1>
+
+    <?php get_template_part("template-parts/content", "post"); ?>
+
+</div><!-- /.blog-page -->
+
+<?php        
     endwhile; endif;
 ?>
 
