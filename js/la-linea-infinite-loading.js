@@ -27,23 +27,25 @@ jQuery(function($) {
     });
 
     function loadPosts() {
-        button.text("Cargando...");
         loading = true;
-        var data = {
-            action: 'la_linea_ajax_load_more', page: page
-        };
+        var data = { action: 'la_linea_ajax_load_more', page: page };
         $.post(vars.url, data, function(res) {
             if(res.success) {
                 res.data.forEach(function(post) {
-                    $('#story').append('<p>' + post.post_title + ' ' + post.post_date + '</p>');
+                    $('#story').append(`
+                        <div class="story-item">
+                            <p class="story-title">${post.title}</p>
+                            <h2>${post.post_title}</h2>
+                            <p>${post.post_date} · <a href="${post.url}">Leer artículo</a></p>
+                        </div>
+                    `);
                 });
                 $('#story').append(button);
                 page = page + 1;
                 loading = false;
-                button.text("");
             }
             else {
-                button.text("");
+
             }
         });
     }
