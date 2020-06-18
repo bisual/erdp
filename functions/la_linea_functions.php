@@ -34,7 +34,7 @@ function la_linea_ajax_load_more() {
         $post->link_text = "Ver libro";
       }
       else {
-        $post->title = $parent_id !== false ? 'Se ha actualizado un artículo' : 'Se ha creado un artículo nuevo';
+        $post->title = "Artículo"; //$parent_id !== false ? 'Se ha actualizado un artículo' : 'Se ha creado un artículo nuevo';
         $post->link_text = "Leer artículo";
       }
       
