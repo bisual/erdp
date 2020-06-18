@@ -222,7 +222,16 @@ nav .blog-nav-item ul li.current_page_item a {
 #content-wrapper .blog-post {
     width: 100%;
     height: auto;
-    margin: 20px 0;
+}
+
+#content-wrapper .blog-post.la-linea #post-content {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 50px;
+}
+
+#content-wrapper .blog-post.la-linea #post-content * {
+    color: #83827E;
 }
 
 .blog-post .blog-post-title h2:hover,
@@ -475,6 +484,11 @@ footer .footer-section-col {
 
     .blog-post.single .post-title, .blog-post.single .blog-post-meta {
         text-align: center;
+    }
+
+    #content-wrapper .blog-post.la-linea #post-content {
+        margin: 0 auto 50px;
+        width: 65%;
     }
 
 }
