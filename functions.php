@@ -64,6 +64,23 @@ function erdp_initial_page_content_callout($wp_customize) {
 }
 add_action('customize_register', 'erdp_initial_page_content_callout');
 
+//when publishing draft post removes existing revisions
+function erdp_on_publish_post($post_id) {
+    global $wpdb;
+    $post = get_post($post_id);
+
+    $wpdb->query( 
+        $wpdb->prepare( 
+            "DELETE FROM $wpdb->posts
+             WHERE post_type = 'revision'
+             AND post_parent = %d
+             AND post_date != %s",
+                $post_id, $post->post_date
+        )
+    );
+}
+add_action('publish_post', 'erdp_on_publish_post');
+
 require_once("functions/books_post_type.php");
 require_once("functions/proposals_post_type.php");
 require_once("functions/la_linea_functions.php");
