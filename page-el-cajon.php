@@ -16,8 +16,6 @@ get_header();
 
     <?php get_template_part("template-parts/proposals-loop"); ?>
 
-    <?php get_template_part( 'template-parts/pager', get_post_format() ); ?>
-
 </div><!-- /.blog-post -->
 
 <?php

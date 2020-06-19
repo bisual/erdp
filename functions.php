@@ -30,7 +30,7 @@ function erdp_scripts() {
             'url' => admin_url("admin-ajax.php"),
             'page' => get_query_var( "page", 1 ),
             'sort_by' => get_query_var("sort_by", 'date'),
-            'finalized' => get_query_var('finalized', false)
+            'finalized' => get_query_var('finalized', '0')
         ]);
     }
 }

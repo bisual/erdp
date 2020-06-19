@@ -2,16 +2,42 @@
 
 function el_cajon_ajax() {
 
-    $page_num = isset($_POST["page"]) ? intval(esc_attr($_POST["page"])) : null;
-    $page_size = isset($_POST["page_size"]) ? intval(esc_attr($_POST["page_size"])) : null;
     $active = isset($_POST["active"]) ? boolval(esc_attr($_POST["active"])) : null;
     $sort_by_date = isset($_POST["sort_by_date"]) ? boolval(esc_attr($_POST["sort_by_date"])) : null;
 
-    $loop = new WP_Query([
+    $args = [
         'post_type' => "proposals",
-        'paged' => $page_num,
-        'posts_per_page' => $page_size,
-    ]);
+        'posts_per_page' => -1,
+        'orderby' => 'DESC'
+    ];
+
+    if($sort_by_date) {
+        $args["orderby"] = "date";
+    }
+    else {
+        $args["meta_key"] = "votes";
+        $args["orderby"] = "meta_value_num";
+    }
+
+    if($active) {
+        $args["meta_query"] = [
+            [
+                'key' => 'done',
+                'value' => 'done',
+                'compare' => '!='
+            ]
+        ];
+    }
+    else {
+        $args["meta_query"] = [
+            [
+                'key' => 'done',
+                'value' => 'done',
+            ]
+        ];
+    }
+
+    $loop = new WP_Query($args);
 
     $data = [];
     if($loop->have_posts()) {
