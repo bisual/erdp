@@ -58,7 +58,7 @@ h6 {
     font-size: 20px;
 }
 
-p, span, a, li, button, textarea, input {
+p, span, a, li, button, textarea, input, select {
     color: #4E4D4B;
     font-family: "PT Serif", Arial;
     font-size: 20px;
@@ -84,7 +84,7 @@ ul, ol, li {
     list-style: none;
 }
 
-button, input[type="submit"], .comment-reply-link {
+button, input[type="submit"], .comment-reply-link, select {
     border: 1px solid #4E4D4B;
     padding: 10px 20px;
     cursor: pointer;
@@ -92,6 +92,11 @@ button, input[type="submit"], .comment-reply-link {
     text-decoration: none;
     background-color: white;
     font-weight: 700;
+}
+
+button.active, input[type="submit"].active, .comment-reply-link.active, select.active {
+    background-color: #4E4D4B;
+    color: white;
 }
 
 
@@ -224,12 +229,14 @@ nav .blog-nav-item ul li.current_page_item a {
     height: auto;
 }
 
-#content-wrapper .blog-post.la-linea #post-content {
+#content-wrapper .blog-post.la-linea #post-content,
+#content-wrapper .blog-post.el-cajon #post-content {
     font-style: italic;
     margin-bottom: 50px;
 }
 
-#content-wrapper .blog-post.la-linea #post-content * {
+#content-wrapper .blog-post.la-linea #post-content *,
+#content-wrapper .blog-post.el-cajon #post-content * {
     color: #83827E;
 }
 
@@ -449,6 +456,57 @@ footer .footer-section-col {
     margin: 0;
 }
 
+/**
+ *  EL CAJON
+ */
+
+#proposal-filter {
+    display: block;
+    width: 100%;
+    overflow: auto;
+}
+
+#proposal-filter div {
+    width: fit-content;
+    display: flex;
+}
+
+#proposal-filter div select,
+#proposal-filter div button {
+    margin-right: 10px;
+}
+
+.proposal-item {
+    border: 1px solid #4E4D4B;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#content-wrapper .proposal-item h2 {
+    margin: 0 0 5px;
+    font-size: 28px;
+}
+
+.proposal-item .the-date {
+    color: #83827E;
+    font-style: italic;
+    margin: 0 0 10px;
+}
+
+.proposal-item .actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.proposal-item .actions button {
+    margin-left: 10px;
+}
+
+.proposal-item .actions .votes {
+    border-bottom: 1px solid #4E4D4B;
+    font-weight: 700;
+}
 
 @media screen and (min-width: 768px) {
     h2 {
@@ -471,7 +529,7 @@ footer .footer-section-col {
         font-size: 18px;
     }
     
-    p, span, a, li, button, textarea, input {
+    p, span, a, li, button, textarea, input, select {
         font-size: 18px;
     }
 
@@ -526,15 +584,16 @@ footer .footer-section-col {
         text-align: center;
     }
 
-    #content-wrapper .blog-post.la-linea #post-content {
+    
+    /**
+    *  LA LINEA
+    */
+    #content-wrapper .blog-post.la-linea #post-content,
+    #content-wrapper .blog-post.el-cajon #post-content {
         margin: 0 auto 50px;
         width: 65%;
         text-align: center;
     }
-
-    /**
-     *  LA LINEA
-     */
     #content-wrapper .blog-post.la-linea h1 {
         position: sticky;
         top: 0px;

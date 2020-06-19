@@ -22,6 +22,17 @@ function erdp_scripts() {
             'url' => admin_url("admin-ajax.php")    
         ] );
     }
+
+    //el cajon
+    if(is_page('el-cajon')) {
+        wp_enqueue_script('erdp_el_cajon', ERDP_JS . "el-cajon.js", array('jquery'), "1.0.0", true);
+        wp_localize_script('erdp_el_cajon', 'vars', [
+            'url' => admin_url("admin-ajax.php"),
+            'page' => get_query_var( "page", 1 ),
+            'sort_by' => get_query_var("sort_by", 'date'),
+            'finalized' => get_query_var('finalized', false)
+        ]);
+    }
 }
 add_action('wp_enqueue_scripts', 'erdp_scripts');
 
@@ -83,5 +94,6 @@ add_action('draft_to_publish', 'erdp_on_publish_post');
 require_once("functions/books_post_type.php");
 require_once("functions/proposals_post_type.php");
 require_once("functions/la_linea_functions.php");
+require_once("functions/el_cajon_ajax.php");
 
 ?>
