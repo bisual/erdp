@@ -1,7 +1,7 @@
 <?php
 
 define("ERDP_JS", get_template_directory_uri() . "/js/");
-define( 'WP_POST_REVISIONS', false );
+//define( 'WP_POST_REVISIONS', false );
 
 function erdp_scripts() {
     wp_enqueue_script( 'jquery' );
